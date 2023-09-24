@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo app</title>
+</head>
+<body>
+    <h1>ToDo App</h1>
+    <div>
+        <input type="text" id="taskInput"/>
+        <button id="taskButton">Add</button>
+    </div>
+    <ul id="tasklist">
+    </ul>
+    <script>
+        var tasks=[{text:'task 1',done:false}]
+        var taskInput= document.getElementById("taskInput");
+        var taskButton = document.getElementById("taskButton");
+        var tasklist= document.getElementById('tasklist');
+        taskButton.addEventListener('click',()=>{
+            var task ={ text:taskInput.value,done: false};
+            tasks.push(task);
+            renderTasks();
+        });
+        function renderTasks(){
+            tasklist.innerHTML='';
+            tasks.forEach((task,index)=>{
+                var taskItem=document.createElement('l1');
+                taskItem.innerHTML=`${task.text}`;
+                tasklist.appendChild(taskItem);
+            })
+        }
+    </script>
+    
+</body>
+</html>
